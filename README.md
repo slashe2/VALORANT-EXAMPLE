@@ -34,4 +34,4 @@ It offers lastest VALORANT patch note.
 ```
 PATCH VERSION / PATCH NOTE LINK / PATCH NOTE THUMBNAIL / PATCH NOTE HIGHLIGHTS* / PATCH NOTE VIDEO* / PATCH NOTE SUMMARY
 ```
-* is offering when patch note has a highlights or video.
+`*` is offering when patch note has a highlights or video.
