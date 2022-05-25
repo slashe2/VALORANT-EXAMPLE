@@ -1,6 +1,8 @@
 # VALORANT-EXAMPLE
-This is an example of Valorant made using "valorant-api.com".
+This is an example of Valorant made by using "valorant-api.com".
 > https://valorant-api.com/
+Patch Notes was made using "playvalorant.com/".
+> https://playvalorant.com/page-data/ko-kr/news/tags/patch-notes/page-data.json
 # Language
 You can change language by changing parameter in url
 ```
