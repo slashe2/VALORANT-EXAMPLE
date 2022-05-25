@@ -11,8 +11,27 @@ ar-AE / de-DE / en-US / es-ES / es-MX / fr-FR / id-ID / it-IT / ja-JP / ko-KR / 
 ```
 # Example
 ## Agent
-It offers all agent in VALORANT.
+It offers all agents in VALORANT.
 ### Offering Data
 ```
 NAME / INFO / SKILL / SKILL INFO / TYPE / TYPE INFO
 ```
+## BUDDY
+It offers all buddies in VALORANT.
+### Offering Data
+```
+NAME / ENGLISH NAME / IMAGE LINK
+```
+## PLAYERCARD
+It offers all playercards in VALORANT.
+### Offering Data
+```
+NAME / ENGLISH NAME / SMALL IMAGE LINK / LARGE IMAGE LINK / WIDE IMAGE LINK
+```
+## PATCH NOTE
+It offers lastest VALORANT patch note.
+### Offering Data
+```
+PATCH VERSION / PATCH NOTE LINK / PATCH NOTE THUMBNAIL / PATCH NOTE HIGHLIGHTS* / PATCH NOTE VIDEO* / PATCH NOTE SUMMARY
+```
+* is offering when patch note has a highlights or video.
