@@ -10,7 +10,7 @@ You can change language by changing parameter in url
 ar-AE / de-DE / en-US / es-ES / es-MX / fr-FR / id-ID / it-IT / ja-JP / ko-KR / pl-PL / pt-BR / ru-RU / th-TH / tr-TR / vi-VN / zh-CN / zh-TW
 ```
 # Example
-## Agent
+## AGENT
 It offers all agents in VALORANT.
 ### Offering Data
 ```
@@ -35,3 +35,9 @@ It offers lastest VALORANT patch note.
 PATCH VERSION / PATCH NOTE LINK / PATCH NOTE THUMBNAIL / PATCH NOTE HIGHLIGHTS* / PATCH NOTE VIDEO* / PATCH NOTE SUMMARY
 ```
 `*` is offering when patch note has a highlights or video.
+## SHOP_LEFT_TIME
+It calculates the time remaining until the store reset.
+### Offering Data
+```
+TIME REMAINING UNTIL THE STORE RESET
+```
