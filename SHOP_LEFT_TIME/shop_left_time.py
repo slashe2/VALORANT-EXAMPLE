@@ -1,4 +1,4 @@
-import time
+import datetime
 
 cur_time = datetime.datetime.utcnow()
 leave_time = cur_time.replace(hour=0, minute=0, second=0)
