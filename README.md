@@ -35,7 +35,7 @@ It offers lastest VALORANT patch note.
 PATCH VERSION / PATCH NOTE LINK / PATCH NOTE THUMBNAIL / PATCH NOTE HIGHLIGHTS* / PATCH NOTE VIDEO* / PATCH NOTE SUMMARY
 ```
 `*` is offering when patch note has a highlights or video.
-## SHOP_LEFT_TIME
+## SHOP LEFT TIME
 It calculates the time remaining until the store reset.
 ### Offering Data
 ```
