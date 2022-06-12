@@ -9,6 +9,22 @@ You can change language by changing parameter in url
 ```
 ar-AE / de-DE / en-US / es-ES / es-MX / fr-FR / id-ID / it-IT / ja-JP / ko-KR / pl-PL / pt-BR / ru-RU / th-TH / tr-TR / vi-VN / zh-CN / zh-TW
 ```
+## Modules
+### PYTHON
+#### requests
+```
+pip install requests
+```
+#### beautifulsoup4
+```
+pip install beautifulsoup4
+```
+### JAVA SCRIPT 
+#### axios
+```
+yarn add axios
+npm i axios
+```
 # Example
 ## AGENT
 It offers all agents in VALORANT.
