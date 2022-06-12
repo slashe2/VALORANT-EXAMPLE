@@ -23,6 +23,8 @@ pip install beautifulsoup4
 #### axios
 ```
 yarn add axios
+```
+```
 npm i axios
 ```
 # Example
