@@ -33,7 +33,6 @@ npm i axios
 ```
 # Example
 ## AGENT
-:python: :js:
 It offers all agents in VALORANT.
 ### Offering Data
 ```
