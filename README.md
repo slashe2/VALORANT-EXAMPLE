@@ -19,6 +19,10 @@ pip install requests
 ```
 pip install beautifulsoup4
 ```
+#### datetime
+```
+pip install datetime
+```
 ### JAVA SCRIPT 
 #### axios
 ```
@@ -58,4 +62,10 @@ It calculates the time remaining until the store reset.
 ### Offering Data
 ```
 TIME REMAINING UNTIL THE STORE RESET
+```
+## RANKING
+It offers VALORANT ranking each server.
+### Offering Data
+```
+NICKNAME / TAG
 ```
