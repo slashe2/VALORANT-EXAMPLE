@@ -6,11 +6,9 @@ function remaindTime() {
   var nt = now.getTime();
   var et = end.getTime();
   if(nt<et){
-    console.log('d')
     var end = new Date(now.getFullYear(),now.getMonth(),now.getDate(),09,00,00);
     var et = end.getTime();
   } else {
-    console.log('f')
     var end = new Date(now.getFullYear(),now.getMonth(),now.getDate() + 1,09,00,00);
     var et = end.getTime();    
   }
@@ -24,7 +22,7 @@ function remaindTime() {
   if(hour<10){hour="0"+hour;}
   if(min<10){min="0"+min;}
   if(sec<10){sec="0"+sec;}
-    console.log(hour, min, sec)
+    console.log(hour,'시간', min,'분', sec ,'초')
 
  }
 setInterval(remaindTime,1000); 
