@@ -2,7 +2,7 @@
 This is an example of Valorant made by using "valorant-api.com".
 > https://valorant-api.com \
 Also "henrikdev.xyz".
-> https://docs.henrikdev.xyz/valorant.html
+> https://docs.henrikdev.xyz/valorant.html \
 Patch Notes was made by using "playvalorant.com".
 > https://playvalorant.com/page-data/ko-kr/news/tags/patch-notes/page-data.json
 # Language
