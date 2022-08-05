@@ -1,12 +1,12 @@
-let id = 'ZK Laz'
-let tag = 'ZKWIN'
+let id = 'id'
+let tag = 'tag'   
 const axios = require('axios');
-axios.get(`https://api.henrikdev.xyz/valorant/v1/account/${id.replace(" ","%20")}/${tag.replace(" ","%20")}`, {'User-Agent': 'info'}).then((Response)=>{
+axios.get(encodeURI(`https://api.henrikdev.xyz/valorant/v1/account/${id.replace(" ","%20")}/${tag.replace(" ","%20")}`, {'User-Agent': 'info'})).then((Response)=>{
     var data1 = Response.data
     var region = data1['data']['region'] //사용자의 지역(kr, ap, na, eu)
-    axios.get(`https://api.henrikdev.xyz/valorant/v1/mmr/${region}/${id.replace(" ","%20")}/${tag.replace(" ","%20")}`, {'User-Agent': 'info'}).then((Response2)=>{
+    axios.get(encodeURI(`https://api.henrikdev.xyz/valorant/v1/mmr/${region}/${id.replace(" ","%20")}/${tag.replace(" ","%20")}`, {'User-Agent': 'info'})).then((Response2)=>{
         var data2 = Response2.data
-        axios.get(`https://valorant-api.com/v1/competitivetiers?language=ko-KR`, {'User-Agent': 'info'}).then((Response3)=>{
+        axios.get(encodeURI(`https://valorant-api.com/v1/competitivetiers?language=ko-KR`, {'User-Agent': 'info'})).then((Response3)=>{
             var data3 = Response3.data
             if (data2['data']['currenttier'] == null) {
                 console.log(`${id}#${tag}`) //아이디#태그 출력
@@ -14,7 +14,7 @@ axios.get(`https://api.henrikdev.xyz/valorant/v1/account/${id.replace(" ","%20")
                 console.log('랭크 없음'); //사용자의 랭크 이름 출력
                 console.log(`${data1['data']['account_level']}`) //사용자 계정의 레벨
             } else {
-                axios.get(`https://api.henrikdev.xyz/valorant/v3/matches/${region}/${id.replace(" ","%20")}/${tag.replace(" ","%20")}?filter=competitive`, {'User-Agent': 'info'}).then((Response4)=>{
+                axios.get(encodeURI(`https://api.henrikdev.xyz/valorant/v3/matches/${region}/${id.replace(" ","%20")}/${tag.replace(" ","%20")}?filter=competitive`, {'User-Agent': 'info'})).then((Response4)=>{
                     var data4 = Response4.data
                     console.log(`${id}#${tag}`) //아이디#태그 출력
                     console.log(data1['data']['card']['wide']) //사용자의 플레이어 카드 이미지 링크 출력
@@ -26,6 +26,12 @@ axios.get(`https://api.henrikdev.xyz/valorant/v1/account/${id.replace(" ","%20")
                     console.log(data2['data']['currenttier'])
                     console.log(`${data3['data'][parseInt(tiermuch - 1)]['tiers'][data2['data']['currenttier']]['tierName']}`); //사용자의 랭크 이름 출력
                     console.log(`${data2['data']['ranking_in_tier']}`) //사용자의 랭크에서의 점수 출력(ex. 실버 1 50점)
+                    if (data2['data']['mmr_change_to_last_game'] >= 0) {
+                        mmrchange = "+" + data2['data']['mmr_change_to_last_game']
+                    } else {
+                        mmrchange = data2['data']['mmr_change_to_last_game']
+                    }
+                    console.log(`${mmrchange}`) //최근 매치의 점수 변경
                     console.log(`${data1['data']['account_level']}`) //사용자 계정의 레벨
                     findme = 0
                     while (data4['data'][0]['players']['all_players'][findme]['puuid'] != data1['data']['puuid']) {
@@ -49,7 +55,8 @@ axios.get(`https://api.henrikdev.xyz/valorant/v1/account/${id.replace(" ","%20")
                     console.log(winorlose) //최근 매치의 승패 여부
                     console.log(score) //최근 매치의 스코어
                     console.log(`${data4['data'][0]['players']['all_players'][findme]['stats']['kills']}/${data4['data'][0]['players']['all_players'][findme]['stats']['deaths']}/${data4['data'][0]['players']['all_players'][findme]['stats']['assists']}`) //최근 매치의 K/D/A
-                    console.log(`${data4['data'][0]['metadata']['map'].replace("Split","스플릿").replace("Pearl","펄").replace("Icebox","아이스박스").replace("Ascent","어센트").replace("Breeze","브리즈").replace("Haven","헤이븐").replace("Fracture","프랙처").replace("Bind","바인드")}`) //최근 매치의 맵
+                    console.log(`${data4['data'][0]['players']['all_players'][findme]['ability_casts']['c_cast']}/${data4['data'][0]['players']['all_players'][findme]['ability_casts']['q_cast']}/${data4['data'][0]['players']['all_players'][findme]['ability_casts']['e_cast']}/${data4['data'][0]['players']['all_players'][findme]['ability_casts']['x_cast']}`) //최근 매치의 스킬
+                    console.log(data4['data'][0]['metadata']['map'].replace("Split","스플릿").replace("Pearl","펄").replace("Icebox","아이스박스").replace("Ascent","어센트").replace("Breeze","브리즈").replace("Haven","헤이븐").replace("Fracture","프랙처").replace("Bind","바인드"))//최근 매치의 맵
                     console.log(data4['data'][0]['players']['all_players'][findme]['character'].replace("Jett","제트").replace("Reyna","레이나").replace("Raze","레이즈").replace("Yoru","요루").replace("Phoenix","피닉스").replace("Neon","네온").replace("KAY/O","케이/오").replace("Sova","소바").replace("Skye","스카이").replace("Breach","브리치").replace("Fade","페이드").replace("Killjoy","킬조이").replace("Cypher","사이퍼").replace("Chamber","체임버").replace("Sage","세이지").replace("Omen","오멘").replace("Viper","바이퍼").replace("Astra","아스트라").replace("Brimstone","브림스톤")) //최근 매치의 요원
                     console.log(`${Math.round(data4['data'][0]['players']['all_players'][findme]['stats']['headshots'] / (data4['data'][0]['players']['all_players'][findme]['stats']['bodyshots'] + data4['data'][0]['players']['all_players'][findme]['stats']['headshots'] + data4['data'][0]['players']['all_players'][findme]['stats']['legshots']) * 100)}%`) //최근 매치의 헤드샷 비율
                     console.log(`${Math.round((data4['data'][0]['players']['all_players'][findme]['stats']['kills'] / data4['data'][0]['players']['all_players'][findme]['stats']['deaths']), 1)}`) //최근 매치의 K/D
@@ -143,6 +150,30 @@ axios.get(`https://api.henrikdev.xyz/valorant/v1/account/${id.replace(" ","%20")
                     }
                     console.log(playerstatsour) //아군의 스탯
                     console.log(playerstatsyou) //적군의 스탯
+                    for (var a = 0; a < data4['data'][0]['rounds'].length; a++) {
+                        console.log(`=======${a + 1}라운드=======`)
+                        if (data4['data'][0]['rounds'][a]['winning_team'] == data4['data'][0]['players']['all_players'][findme]['team']) { //end_type
+                            console.log(data4['data'][0]['rounds'][a]['end_type'].replace('Surrendered', '항복').replace('Eliminated', '전멸').replace('Bomb defused', '해체').replace('Bomb detonated', '폭파').replace('Round timer expired', '타임아웃')  + ' 승리')
+                        } else {
+                            console.log(data4['data'][0]['rounds'][a]['end_type'].replace('Surrendered', '항복').replace('Eliminated', '전멸').replace('Bomb defused', '해체').replace('Bomb detonated', '폭파').replace('Round timer expired', '타임아웃')  + ' 패배')
+                        };
+                        if (data4['data'][0]['rounds'][a]['bomb_planted'] == true) {
+                            console.log(`스파이크 설치(${data4['data'][0]['rounds'][a]['plant_events']['plant_site']}지점) - ${data4['data'][0]['rounds'][a]['plant_events']['planted_by']['display_name']}`)
+                        } else {
+                            console.log('스파이크 미설치')
+                        };
+                        if (data4['data'][0]['rounds'][a]['bomb_defused'] == true) {
+                            console.log('스파이크 해체 - ' + data4['data'][0]['rounds'][a]['defuse_events']['defused_by']['display_name'])
+                        } else {
+                            console.log('스파이크 미해체')
+                        };
+                        /*
+                        console.log(data4['data'][0]['rounds'][a]['player_stats']['damage_events']['kill_events'])
+                        for (var b = 0; b < data4['data'][0]['rounds'][a]['player_stats']; b++) {
+                            console.log(`${data4['data'][0]['rounds'][a]['player_stats']['kill_events'][b]['killer_display_name']}->${data4['data'][0]['rounds'][a]['kill_events'][b]['victim_display_name']}`)
+                        }
+                        */
+                    }
                 }).catch((Error)=>{
                 console.log(Error);
                 })  
